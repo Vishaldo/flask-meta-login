@@ -8,8 +8,8 @@ def home():
 
 @app.route("/login")
 def login():
-    client_id = "YOUR_APP_ID"
-    redirect_uri = "https://your-render-app.onrender.com/callback"
+    client_id = os.environ.get("META_APP_ID")
+    redirect_uri = os.environ.get("REDIRECT_URI")
     scope = "instagram_basic,instagram_content_publish,instagram_manage_comments,instagram_manage_insights,pages_show_list,pages_read_engagement"
     extras = '{"setup":{"channel":"IG_API_ONBOARDING"}}'
     encoded_extras = extras.replace('"', '%22').replace('{', '%7B').replace(
